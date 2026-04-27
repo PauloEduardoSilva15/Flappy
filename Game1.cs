@@ -19,6 +19,8 @@ public class Game1 : Game
     Pipe pipe, pipe2;
     Floor floor;
 
+    SpriteFont font;
+
     SoundEffect getPointSound;
 
     int score = 0;
@@ -52,6 +54,7 @@ public class Game1 : Game
         pipe = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width, GameDefaults.height/2));
         pipe2 = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width + 400, GameDefaults.height/2));
         getPointSound = Content.Load<SoundEffect>("Sounds/newPoint");
+        font = Content.Load<SpriteFont>("Fonts/FlappyFont");
         // TODO: use this.Content to load your game content here
     }
 
@@ -105,6 +108,8 @@ public class Game1 : Game
         pipe2.Draw();
 
         player.Draw();
+
+        GameDefaults.spriteBatch.DrawString(font, "Score " + score, new Vector2(10,10), Color.White);
         GameDefaults.spriteBatch.End();
 
         // TODO: Add your drawing code here

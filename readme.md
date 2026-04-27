@@ -21,7 +21,9 @@ git clone https://github.com/PauloEduardoSilva15/Flappy.git
 cd ./Flappy
 ```
 #### 4) Running the project
+```fish
 dotnet run
+```
 
 ## Assets
 [Minercraftory - Grandoplex Productions](https://www.1001freefonts.com/pt/minercraftory.font)

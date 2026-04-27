@@ -23,6 +23,8 @@ public class Game1 : Game
 
     SoundEffect getPointSound;
 
+    ReloadMenu reloadMenu;
+
     int score = 0;
 
     public Game1()
@@ -55,6 +57,7 @@ public class Game1 : Game
         pipe2 = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width + 400, GameDefaults.height/2));
         getPointSound = Content.Load<SoundEffect>("Sounds/newPoint");
         font = Content.Load<SpriteFont>("Fonts/FlappyFont");
+        reloadMenu = new ReloadMenu(new Vector2(GameDefaults.width / 2 - 150, GameDefaults.height / 2 - 150), font, score);
         // TODO: use this.Content to load your game content here
     }
 
@@ -106,8 +109,14 @@ public class Game1 : Game
         floor.Draw();  
         pipe.Draw();
         pipe2.Draw();
+        
 
         player.Draw();
+
+        if(player.IsDead)
+        {
+            reloadMenu.Draw();
+        }
 
         GameDefaults.spriteBatch.DrawString(font, "Score " + score, new Vector2(10,10), Color.White);
         GameDefaults.spriteBatch.End();

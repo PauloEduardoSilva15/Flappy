@@ -49,3 +49,9 @@
 /processorParam:TextureFormat=Color
 /build:images/sprites/flappy.png
 
+#begin Sounds/newPoint.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/newPoint.wav
+

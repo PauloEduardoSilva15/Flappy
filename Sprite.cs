@@ -9,15 +9,25 @@ namespace Flappy
     {
         protected Texture2D texture;
         protected Vector2 position;
+        protected Vector2 startPosition;
         protected Color color = Color.White;
 
-
+        public Vector2 Position
+        {
+            get{return position;}
+            set{position = value;}
+        }
+         public Vector2 StartPosition
+        {
+            get{return startPosition;}
+        }
 
 
         public Sprite(Texture2D texture, Vector2 position)
         {
             this.texture = texture;
-            this.position = position;
+            this.startPosition = position;
+            this.position = startPosition;
             
         }
 

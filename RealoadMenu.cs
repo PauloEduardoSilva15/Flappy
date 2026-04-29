@@ -8,16 +8,14 @@ namespace Flappy
         SpriteFont font;
         Rectangle rectangle;
 
-        int score;
-        public ReloadMenu(Vector2 origin, SpriteFont font, int score)
+        public ReloadMenu(Vector2 origin, SpriteFont font)
         {
             this.font = font;
             this.rectangle = new Rectangle((int)origin.X, (int)origin.Y, 300, 200);
-            this.score = score;
+            //this.score = score;
         }
 
-
-        public void Draw()
+        public void Draw(int score)
         {
             GameDefaults.spriteBatch.Draw(GameDefaults.pixel, rectangle, Color.Brown);
             GameDefaults.spriteBatch.DrawString(font, "Press R to Restart", 

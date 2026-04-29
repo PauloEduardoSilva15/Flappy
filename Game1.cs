@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
+using System.Runtime.Intrinsics.X86;
 
 namespace Flappy;
 
@@ -57,7 +58,7 @@ public class Game1 : Game
         pipe2 = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width + 400, GameDefaults.height/2));
         getPointSound = Content.Load<SoundEffect>("Sounds/newPoint");
         font = Content.Load<SpriteFont>("Fonts/FlappyFont");
-        reloadMenu = new ReloadMenu(new Vector2(GameDefaults.width / 2 - 150, GameDefaults.height / 2 - 150), font, score);
+        reloadMenu = new ReloadMenu(new Vector2(GameDefaults.width / 2 - 150, GameDefaults.height / 2 - 150), font);
         // TODO: use this.Content to load your game content here
     }
 
@@ -89,10 +90,14 @@ public class Game1 : Game
         {
             score = 0;
             player.IsDead = false;
-            player = new Player(Content.Load<Texture2D>("images/sprites/flappy"), new Vector2(100,GameDefaults.height/2), new Vector2(32,32));
-            floor = new Floor(Content.Load<Texture2D>("images/inanimates/Grass"));
-            pipe = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width, GameDefaults.height/2));
-            pipe2 = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width + 400, GameDefaults.height/2));
+            player.Position = player.StartPosition;
+            pipe.Position = pipe.StartPosition;
+            pipe2.Position = pipe2.StartPosition;
+            floor.Position = floor.StartPosition;
+            //player = new Player(Content.Load<Texture2D>("images/sprites/flappy"), new Vector2(100,GameDefaults.height/2), new Vector2(32,32));
+            //floor = new Floor(Content.Load<Texture2D>("images/inanimates/Grass"));
+            //pipe = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width, GameDefaults.height/2));
+            //pipe2 = new Pipe(Content.Load<Texture2D>("images/inanimates/Pipe"), new Vector2(GameDefaults.width + 400, GameDefaults.height/2));
         }
 
         
@@ -115,7 +120,7 @@ public class Game1 : Game
 
         if(player.IsDead)
         {
-            reloadMenu.Draw();
+            reloadMenu.Draw(score);
         }
 
         GameDefaults.spriteBatch.DrawString(font, "Score " + score, new Vector2(10,10), Color.White);

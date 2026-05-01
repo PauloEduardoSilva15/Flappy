@@ -9,9 +9,13 @@ namespace Flappy{
         public static Rectangle hitbox;
         bool isHitboxVisible = false;
 
-        public Floor(Texture2D texture) : base(texture, new Vector2(0, GameDefaults.height - texture.Height))
+        public Floor(Texture2D texture) 
+        : base(texture, new Vector2(0, GameDefaults.height - texture.Height))
         {
-            hitbox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            hitbox = new Rectangle((int)position.X, 
+                                    (int)position.Y, 
+                                    texture.Width, 
+                                    texture.Height);
         }
         public override void Update()
         {

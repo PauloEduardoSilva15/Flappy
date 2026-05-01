@@ -29,7 +29,8 @@ namespace Flappy
                                 set{pointAdded = value;} }
         public bool IsDead { get{return isDead;} 
                             set{isDead = value;}}
-        public Player(Texture2D texture, Vector2 position, Vector2 frameSize) : base(texture, position)
+        public Player(Texture2D texture, Vector2 position, Vector2 frameSize) 
+        : base(texture, position)
         {
             this.rotate = 0;
             this.frameSize = frameSize;
@@ -69,7 +70,9 @@ namespace Flappy
             hitbox.Y = (int)position.Y-10;
 
 
-            if(hitbox.Intersects(Floor.hitbox)|| hitbox.Intersects(Pipe.hitboxPipe1) || hitbox.Intersects(Pipe.hitboxPipe2))
+            if(hitbox.Intersects(Floor.hitbox)|| 
+                hitbox.Intersects(Pipe.hitboxPipe1) || 
+                hitbox.Intersects(Pipe.hitboxPipe2))
             {
                 IsDead = true;
             }
@@ -78,18 +81,11 @@ namespace Flappy
             {
                 pointAdded = true;
                 cutdown = 1;
-                /*Game1.score++;
-                cutdown = 1;
-                Console.WriteLine(Game1.score);
-                */ 
             }
-
             if(cutdown == 1 && !hitbox.Intersects(Pipe.pointMarker))
             {
                 cutdown = 0;
             }
-
-
             Animation();
         }
 
@@ -110,7 +106,10 @@ namespace Flappy
                                                 hitbox, 
                                                 Color.Red, 
                                                 rotate, 
-                                                new Vector2(hitbox.Width / 2, hitbox.Height / 2), 
+                                                new Vector2(
+                                                            hitbox.Width / 2, 
+                                                            hitbox.Height / 2
+                                                            ), 
                                                 new Vector2(1, 1), 
                                                 SpriteEffects.None, 
                                                 0);
@@ -121,7 +120,8 @@ namespace Flappy
                                         frameCut, 
                                         color, 
                                         rotate, 
-                                        new Vector2(hitbox.Width / 2, hitbox.Height / 2), 
+                                        new Vector2(hitbox.Width / 2, 
+                                            hitbox.Height / 2), 
                                         1f, 
                                         SpriteEffects.None, 
                                         0);

@@ -12,8 +12,8 @@ namespace Flappy
         public ReloadMenu(Vector2 origin, SpriteFont font)
         {
             this.font = font;
-            this.rectangle = new Rectangle((int)origin.X, (int)origin.Y, 300, 200);
-            //this.score = score;
+            this.rectangle = new Rectangle((int)origin.X, 
+                                            (int)origin.Y, 300, 200);
         }
 
         public void Reaload(Scene game, bool playerIsDead)
@@ -28,10 +28,15 @@ namespace Flappy
         {
             GameDefaults.spriteBatch.Draw(GameDefaults.pixel, rectangle, Color.Brown);
             GameDefaults.spriteBatch.DrawString(font, "Press R to Restart", 
-                                                new Vector2((rectangle.Width / 2)-50,(rectangle.Y + (rectangle.Height / 2) - 50)), 
+                                                new Vector2(
+                                                    (rectangle.Width / 2)-50,
+                                                    (rectangle.Y + (rectangle.Height / 2) - 50)
+                                                    ), 
                                                 Color.White);
             GameDefaults.spriteBatch.DrawString(font, "Score " + score,
-                                                new Vector2((rectangle.Width / 2)-50, (rectangle.Y + (rectangle.Height / 2) + 30)),
+                                                new Vector2(
+                                                        (rectangle.Width / 2)-50, 
+                                                        (rectangle.Y + (rectangle.Height / 2) + 30)),
                                                 Color.White);
         }
     }

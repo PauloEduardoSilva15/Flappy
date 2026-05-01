@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 namespace Flappy
 {
     public class ReloadMenu
@@ -13,6 +14,14 @@ namespace Flappy
             this.font = font;
             this.rectangle = new Rectangle((int)origin.X, (int)origin.Y, 300, 200);
             //this.score = score;
+        }
+
+        public void Reaload(Scene game, bool playerIsDead)
+        {
+            if(Keyboard.GetState().IsKeyDown(Keys.R) && playerIsDead)
+            {
+                game.reloadGame();
+            }
         }
 
         public void Draw(int score)

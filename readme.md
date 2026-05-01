@@ -1,6 +1,6 @@
 # Flappy Bird Clone
 
-A simple clone of the game Flappy Bird in MonoGame. This project is a nonprofit initiative. 
+A simple clone of the game Flappy Bird in [MonoGame](https://monogame.net/). This project is a nonprofit initiative. 
 
 ## How to play the game
 ### Keys
@@ -20,10 +20,14 @@ git clone https://github.com/PauloEduardoSilva15/Flappy.git
 ```fish
 cd ./Flappy
 ```
-#### 4) Running the project
+#### 3) Running the project
 ```fish
 dotnet run
 ```
 
 ## Assets
-[Minercraftory - Grandoplex Productions](https://www.1001freefonts.com/pt/minercraftory.font)
+- Font: [Minercraftory - Grandoplex Productions](https://www.1001freefonts.com/pt/minercraftory.font)
+
+- Images: [Libresprite](https://libresprite.github.io/#!/)
+
+- Sound: [BFxr](https://www.bfxr.net/)
